@@ -1,6 +1,6 @@
 /**
  * @file ad4000.c
- * @brief Implementacja obsługi ADC AD4000 przy użyciu biblioteki spi2 (dwie magistrale).
+ * @brief AD4000 ADC driver implementation built on top of the spi2 helper.
  */
 
 #include "ad4000.h"
@@ -49,10 +49,8 @@ uint8_t ad4000_init(spi2_bus_t bus,
 {
     if (out_index == NULL) return 0xFF;
 
-    // Dodajemy urządzenie do wybranego busa.
-    // AD4000 w Twoim kodzie używał GPIO_NUM_NC jako CS — ale jeśli faktycznie masz CS,
-    // podaj go. Jeśli nie używasz CS (np. zawsze jedno urządzenie i ręcznie CNV),
-    // zostaw GPIO_NUM_NC.
+    // Add the device to the selected SPI bus.
+    // If your hardware does not use CS, keep GPIO_NUM_NC and drive CNV manually.
     int idx = spi2_add_device(bus, cs_pin, local_index, clock_speed_hz, spi_mode);
     if (idx < 0) return 0xFF;
 
@@ -98,20 +96,20 @@ uint8_t ad4000_readConfig(int index, gpio_num_t cnv_pin)
 }
 
 /**
- * @brief Przygotowanie linii SDI w stan wysoki przed pomiarem (Twoja logika).
+ * @brief Prepares the SDI line by driving it high before measurement.
  *
- * W wersji "2 magistrale" NIE robimy spi_deinit() globalnie, bo to by wywaliło też drugi bus.
- * Zamiast tego:
- * - jeżeli chcesz przełączyć konfigurację dla konkretnego busa, powinieneś zrobić spi2_deinit_bus(bus)
- *   i ponownie spi2_init_bus(bus, ...) poza tym modułem.
+ * In the dual-bus version we do not deinitialize SPI globally, because that
+ * would also tear down the second bus. If you need to reconfigure a specific
+ * bus, call spi2_deinit_bus(bus) and spi2_init_bus(bus, ...) outside this
+ * module.
  *
- * Dlatego tu zostawiamy tylko operacje GPIO + ewentualnie ponowne dodanie urządzenia,
- * zakładając, że bus jest już skonfigurowany właściwie.
+ * This helper only keeps the GPIO preparation sequence, assuming the bus is
+ * already configured correctly.
  */
 uint8_t ad4000_prepareBeforeMeasurement(int index,
                                         gpio_num_t sdi_pin)
 {
-    // W Twoim kodzie: ustaw SDI na 1.
+    // Drive SDI high using the original board logic.
     gpio_reset_pin(sdi_pin);
     gpio_set_direction(sdi_pin, GPIO_MODE_OUTPUT);
     gpio_set_level(sdi_pin, 1);
