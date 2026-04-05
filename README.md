@@ -1,21 +1,21 @@
 # esp32-ad4000
 
-Sterownik przetwornika ADC `AD4000` dla ESP32. Biblioteka obsługuje konfigurację układu i szybki odczyt surowych próbek przez SPI.
+Driver for the `AD4000` ADC on ESP32. The library handles device configuration and fast raw sample reads over SPI.
 
-## Co zawiera
-- inicjalizację układu i busa
-- konfigurację rejestru sterującego
-- przygotowanie toru przed pomiarem
-- szybki odczyt `uint16_t`
+## Features
+- initialize the device and SPI bus
+- configure the control register
+- prepare the interface before measurement
+- fast `uint16_t` raw data reads
 
-## Zależności
+## Dependencies
 - `esp32-spi2-bus`
 
-## Pliki
+## Files
 - `include/ad4000.h`
 - `src/ad4000.c`
 
-## Szybki start
+## Quick start
 ```c
 #include "ad4000.h"
 
@@ -31,4 +31,4 @@ void app_main(void)
 }
 ```
 
-Pełny przykład znajdziesz w `examples/basic_usage/basic_usage.c`.
+See `examples/basic_usage/basic_usage.c` for a complete example.

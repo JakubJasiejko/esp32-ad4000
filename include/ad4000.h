@@ -4,7 +4,7 @@
 #include "driver/gpio.h"
 #include "spi2.h"
 
-/* Public defines (bez zmian) */
+/* Public pin and configuration definitions */
 #define AD4000_PIN_SDI    ((gpio_num_t)19)
 #define AD4000_PIN_SDO    ((gpio_num_t)21)
 #define AD4000_PIN_SCLK   ((gpio_num_t)18)
@@ -31,17 +31,17 @@
 
 
 /**
- * @brief Inicjalizacja AD4000: dodaje urządzenie do wybranego busa.
+ * @brief Initializes AD4000 by adding it to the selected SPI bus.
  *
- * Uwaga: magistralę inicjalizujesz wcześniej przez spi2_init_bus().
+ * Note: initialize the SPI bus first with spi2_init_bus().
  *
  * @param bus            SPI2_BUS0 / SPI2_BUS1
- * @param out_index      zwrócony globalny index urządzenia (do użycia w pozostałych funkcjach)
- * @param local_index    0..MAX_SPI_DEVICES-1 w ramach wybranego busa
- * @param cs_pin         CS (jeśli brak, daj GPIO_NUM_NC)
- * @param cnv_pin        pin CNV
- * @param clock_speed_hz częstotliwość SPI dla tego urządzenia
- * @param spi_mode       tryb SPI 0..3
+ * @param out_index      returned global device index for later function calls
+ * @param local_index    0..MAX_SPI_DEVICES-1 within the selected bus
+ * @param cs_pin         chip select pin, or GPIO_NUM_NC if unused
+ * @param cnv_pin        CNV pin
+ * @param clock_speed_hz SPI clock frequency for this device
+ * @param spi_mode       SPI mode 0..3
  */
 uint8_t ad4000_init(spi2_bus_t bus,
                     int *out_index,
@@ -60,7 +60,7 @@ uint8_t ad4000_configure(int index, gpio_num_t cnv_pin,
 uint8_t ad4000_readConfig(int index, gpio_num_t cnv_pin);
 
 /**
- * @brief Przygotowanie SDI do pomiaru (ustawienie w stan wysoki).
+ * @brief Prepares SDI for measurement by driving it high.
  */
 uint8_t ad4000_prepareBeforeMeasurement(int index, gpio_num_t sdi_pin);
 
