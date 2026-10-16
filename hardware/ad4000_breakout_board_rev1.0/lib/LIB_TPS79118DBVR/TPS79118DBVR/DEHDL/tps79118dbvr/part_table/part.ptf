@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TPS79118DBVR'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "TPS79118DBVR" (!) = "", "SOT95P280X145-5N", "SOT23 (5-Pin)", "595-TPS79118DBVR", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS79118DBVR?qs=5WY7Uqh921zBXwEUn9N4JA%3D%3D", "Ultralow Noise, High PSRR, Fast RF 100-mA Low-Dropout Linear Regulators", "http://www.ti.com/lit/gpn/tps791", "1.45 mm"
+END_PART
+
+END.

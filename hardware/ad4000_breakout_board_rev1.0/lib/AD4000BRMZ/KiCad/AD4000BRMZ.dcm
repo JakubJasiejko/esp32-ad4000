@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AD4000BRMZ
+D  Easy Drive expands signal chain flexibility  High-Z mode significantly reduces signal chain settling requirements  Fast conversion phase extends the ADC acquisition time  Input overvoltage protection clamp sinks up to 50 mA  High performance  First conversion accurate, no latency or pipeline delay  Guaranteed 16-bit, no missing codes  Throughput: 2 MSPS/1 MSPS/500 kSPS options  INL: +/-1.0 LSB maximum  SNR: 93 dB at fIN = 1 kHz, VREF = 5 V  THD: 115 dB at fIN = 1 kHz; 95 dB at fIN = 10
+K
+F https://www.analog.com/AD4000/datasheet
+$ENDCMP
+#
+#End Doc Library

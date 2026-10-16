@@ -1,0 +1,16 @@
+.TPS79118DBVR :1 ;Ultralow Noise, High PSRR, Fast RF 100-mA Low-Dropout Linear Regulators
+SOT95P280X145-5N
+*STM IC
+*NGS
+*PLB 1="IN" 2="GND" 3="'EN'" 4="BYPASS" 5="OUT"
+*MXP 5
+*DFN TPS79118DBVR
+~!Mouser Part Number (595-TPS79118DBVR)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS79118DBVR?qs=5WY7Uqh921zBXwEUn9N4JA%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (TPS79118DBVR)
+~!Link Datasheet (http://www.ti.com/lit/gpn/tps791)
+~!Height (1.45mm)
+~!3D_Model (TPS79118DBVR)
+TPS79118DBVR
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPS79118DBVR
+D Ultralow Noise, High PSRR, Fast RF 100-mA Low-Dropout Linear Regulators
+K
+F http://www.ti.com/lit/gpn/tps791
+$ENDCMP
+#
+#End Doc Library
